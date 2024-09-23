@@ -1,20 +1,13 @@
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.*;
 
 class Solution {
-    public long solution(long n) {
-        String str = Long.toString(n);
-        Integer[] num = new Integer[str.length()];
-        
-        for (int i = 0; i < str.length(); i++) {
-            num[i] = str.charAt(i) - '0'; 
-        }
-        Arrays.sort(num, Collections.reverseOrder());
-        
-        StringBuilder sortedStr = new StringBuilder();
-        for (int no : num) {
-            sortedStr.append(no);
-        }
-        return Long.parseLong(sortedStr.toString());
-    }
+  public long solution(long n) {
+        String[] list = String.valueOf(n).split("");
+        Arrays.sort(list);
+
+        StringBuilder sb = new StringBuilder();
+        for (String aList : list) sb.append(aList);
+
+        return Long.parseLong(sb.reverse().toString());
+  }
 }
